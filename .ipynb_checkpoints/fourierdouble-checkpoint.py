@@ -48,3 +48,13 @@ def sfourier_value(f,a,b,nn,mm):
     return fmn,F
 
 
+def sfourier_etaxsi(f,a,b,xsi,eta,c,d,nn,mm):
+    freq=smp.sin(x*smp.pi*m/a)*smp.sin(y*smp.pi*n/b)
+    fmn=4/a/b*smp.integrate(smp.integrate(f*freq,(x,xsi-c/2,xsi+c/2)),(y,eta-d/2,eta+d/2))
+    F=smp.summation((smp.summation(fmn*freq,(n,1,nn))),(m,1,mm))
+    plot3d(F, (x, 0,a), (y, 0,b))
+
+   
+
+
+    return fmn,F
